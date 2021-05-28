@@ -1,4 +1,5 @@
-import "./collection-preview.styles.css";
+import CollectionItem from "../collection-item/collection-item.component";
+import "./collection-preview.styles.scss";
 
 const CollectionPreview = ({ title, items }) => (
   <div className="collection-preview">
@@ -9,8 +10,8 @@ const CollectionPreview = ({ title, items }) => (
         // component has to re-render especially if the collections array gets bigger in size
         items
           .filter((item, idx) => idx < 4)
-          .map((item) => (
-            <div key={item.id}>{item.name}</div>
+          .map(({ id, ...otherProps }) => (
+            <CollectionItem key={id} {...otherProps} />
           ))
       }
     </div>
