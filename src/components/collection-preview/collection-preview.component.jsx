@@ -10,8 +10,8 @@ const CollectionPreview = ({ title, items }) => (
         // component has to re-render especially if the collections array gets bigger in size
         items
           .filter((item, idx) => idx < 4)
-          .map(({ id, ...otherProps }) => (
-            <CollectionItem key={id} {...otherProps} />
+          .map((item) => (
+            <CollectionItem key={item.id} item={item} />
           ))
       }
     </div>
